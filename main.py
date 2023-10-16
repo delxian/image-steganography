@@ -69,7 +69,7 @@ def cycle_cipher(text: str, code: str, decode: bool = False) -> str:
         shift = value % 5 + 1
         return ''.join(str(n) for n in (interval, offset, shift))
 
-    new = [*text]
+    new_text = [*text]
     if not code.isnumeric():
         code = alpha_to_cycle(code)
     if len(code) % 3:
@@ -81,11 +81,11 @@ def cycle_cipher(text: str, code: str, decode: bool = False) -> str:
         if decode:
             n = group_count - (n+1)  # reverse group order
         interval, offset, shift = [int(x) for x in code[n*3 : n*3 + 3]]
-        chars = deque(new[offset :: interval])
+        chars = deque(new_text[offset :: interval])
         chars.rotate(shift if decode else -shift)
         for i, char in enumerate(chars):
-            new[offset + i*interval] = char
-    return ''.join(new)
+            new_text[offset + i*interval] = char
+    return ''.join(new_text)
 
 def closest_coprimes(dividend: int, num: int) -> tuple[int, int]:
     """Get the coprimes of a number closest below and above a starting value."""
