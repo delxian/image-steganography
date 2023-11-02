@@ -5,7 +5,7 @@ Encodes text within the color data of a PNG image.
 - Image steganography encoding and decoding
 - Load text to encode from .txt and/or save decoded text to .txt
 - Semi-even data distribution across the image with looping behavior
-- Five demo images from [Pexels](https://www.pexels.com/) (medium size,converted from .jpg to .png)
+- Five demo images from [Pexels](https://www.pexels.com/) (medium size, converted from .jpg to .png)
 - Three sample texts
     - [Declaration of Independence](https://www.archives.gov/founding-docs/declaration-transcript) - 9KB, ~8.2K characters
     - [Lorem ipsum, 50 paragraphs](https://www.lipsum.com/) - 29KB, ~29.5K characters
