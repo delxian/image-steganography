@@ -61,7 +61,7 @@ def cycle_cipher(text: str, code: str, decode: bool = False) -> str:
             if (root := digital_root(interval)) in range(2, 6):
                 interval = root
                 break
-            # if not possible, incrememnt value and start over
+            # if not possible, increment value and start over
             interval += 1
 
         # offset is always < interval and most of the time 0 or 1

@@ -57,7 +57,7 @@ Demonstration:
 text, code = "This is a test sentence.", "213"  # interval = 2, offset = 1, shift = 3
 # every 2nd character, starting at index 1, rotates left by 3 positions
 enciphered = cycle_cipher(text, code)  # "T i  estastnse ce.thnsei"
-deciphered = cycle_cipher(text, code, decode=True)  # "This is a test sentence."
+deciphered = cycle_cipher(enciphered, code, decode=True)  # "This is a test sentence."
 ```
 
 These rotation operations can be chained together to further scramble the data.
