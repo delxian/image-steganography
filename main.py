@@ -29,7 +29,7 @@ def str_to_bin(text: str) -> str:
 def bin_to_str(bits: str) -> str:
     """Convert a binary string to an ASCII (8-bit) string."""
     bits = bits[: len(bits) - len(bits) % 8]  # truncate incomplete bytes from end
-    partitioned = [bits[i*8 : i*8 + 8] for i in range(int(len(bits)/8))]
+    partitioned = [bits[i*8 : i*8 + 8] for i in range(len(bits) // 8)]
     return ''.join([chr(int(i, 2)) for i in partitioned])
 
 def cycle_cipher(text: str, code: str, decode: bool = False) -> str:
@@ -156,10 +156,8 @@ class SteganoImage:
         reconstructed_binary: str = ''
         for index in indices:
             reconstructed_binary += str(image_data[index] % 2)
-            if not len(reconstructed_binary) % 8:
-                # stop reading at end of text character
-                if reconstructed_binary[-8:] == END_OF_TEXT:
-                    break
+            if not len(reconstructed_binary) % 8 and reconstructed_binary[-8:] == END_OF_TEXT:
+                break  # stop reading at end of text character
         return bin_to_str(reconstructed_binary)
 
     @staticmethod
