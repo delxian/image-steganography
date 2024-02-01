@@ -142,7 +142,7 @@ class SteganoImage:
             if color not in range(256):
                 raise ValueError("Invalid 8-bit color value")
             if data.bit_length() > 1:
-                raise ValueError("Too much data bits for LSB mode")
+                raise ValueError("Too many data bits for LSB mode")
             return (color & ~1) + data
         return color
 
